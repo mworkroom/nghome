@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00b5ef" />
+    <meta
+      name="description"
+      content="NANGOK 업무 도구 — 페이나우비즈, 가격표, 회원 관리, 직급 플랜"
+    />
+    <title>NANGOK 업무 도구</title>
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient--top" aria-hidden="true"></div>
+      <div class="ambient ambient--bottom" aria-hidden="true"></div>
+
+      <header class="site-header">
+        <a class="brand" href="https://www.nangok.app" aria-label="NANGOK 홈">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-text">
+            <strong>NANGOK</strong>
+            <small>WORKSPACE</small>
+          </span>
+        </a>
+
+        <div class="tool-count" aria-label="업무 도구 4개">
+          <span class="tool-count__dot"></span>
+          업무 도구 4개
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">MY ATOMY WORK</p>
+          <h1 id="page-title">어떤 업무를 하시나요?</h1>
+          <p class="hero-description">필요한 메뉴를 누르면 바로 이동합니다.</p>
+        </section>
+
+        <section class="app-grid" aria-label="업무 도구 목록">
+          <a class="app-card app-card--pay" href="https://paynowbiz.nangok.app">
+            <span class="app-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <rect x="6" y="11" width="36" height="27" rx="5"></rect>
+                <path d="M7 18h34"></path>
+                <path d="M29 29h7"></path>
+                <circle cx="15" cy="29" r="3"></circle>
+              </svg>
+            </span>
+            <span class="app-card__content">
+              <span class="app-card__category">결제 관리</span>
+              <strong>페이나우비즈</strong>
+              <span class="app-card__description">사용 내역과 남은 금액 확인</span>
+            </span>
+            <span class="app-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
+
+          <a class="app-card app-card--price" href="https://price.nangok.app/admin">
+            <span class="app-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <path d="M8 10h20l12 12-18 18L8 26Z"></path>
+                <circle cx="20" cy="20" r="3"></circle>
+                <path d="M25 27h9"></path>
+                <path d="M29.5 22.5v9"></path>
+              </svg>
+            </span>
+            <span class="app-card__content">
+              <span class="app-card__category">상품 검색</span>
+              <strong>가격표</strong>
+              <span class="app-card__description">제품 가격과 PV 빠르게 찾기</span>
+            </span>
+            <span class="app-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
+
+          <a class="app-card app-card--member" href="https://member.nangok.app">
+            <span class="app-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <circle cx="18" cy="17" r="6"></circle>
+                <path d="M7 34c1.5-7 6-10 11-10s9.5 3 11 10"></path>
+                <circle cx="33" cy="29" r="7"></circle>
+                <path d="m38 34 5 5"></path>
+              </svg>
+            </span>
+            <span class="app-card__content">
+              <span class="app-card__category">회원 검색</span>
+              <strong>회원 관리</strong>
+              <span class="app-card__description">회원 정보와 관계 바로 확인</span>
+            </span>
+            <span class="app-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
+
+          <a class="app-card app-card--plan" href="https://plan.nangok.app">
+            <span class="app-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <rect x="7" y="7" width="34" height="34" rx="5"></rect>
+                <path d="M15 33V25"></path>
+                <path d="M24 33V18"></path>
+                <path d="M33 33V13"></path>
+                <path d="m14 18 8-5 7 3 7-7"></path>
+              </svg>
+            </span>
+            <span class="app-card__content">
+              <span class="app-card__category">실적 계획</span>
+              <strong>직급 플랜</strong>
+              <span class="app-card__description">실적 입력과 직급 계획 확인</span>
+            </span>
+            <span class="app-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span class="footer-line"></span>
+        <p>nangok.app</p>
+      </footer>
+    </div>
+  </body>
+</html>
