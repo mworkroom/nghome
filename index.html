@@ -16,7 +16,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
-	<link rel="icon" type="image/x-icon" href="/nghome/favicon.ico">
     <link rel="stylesheet" href="./style.css" />
   </head>
 
@@ -69,7 +68,7 @@
             </span>
           </a>
 
-          <a class="app-card app-card--price" href="https://price.nangok.app/admin">
+          <button class="app-card app-card--price" type="button" data-open-price-dialog aria-haspopup="dialog">
             <span class="app-card__icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" role="img">
                 <path d="M8 10h20l12 12-18 18L8 26Z"></path>
@@ -86,7 +85,7 @@
             <span class="app-card__arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
             </span>
-          </a>
+          </button>
 
           <a class="app-card app-card--member" href="https://member.nangok.app">
             <span class="app-card__icon" aria-hidden="true">
@@ -129,10 +128,73 @@
         </section>
       </main>
 
+
+
+      <dialog class="price-dialog" id="price-dialog" aria-labelledby="price-dialog-title">
+        <div class="price-dialog__panel">
+          <button class="price-dialog__close" type="button" data-close-price-dialog aria-label="닫기">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+          </button>
+
+          <div class="price-dialog__header">
+            <span class="price-dialog__eyebrow">가격표</span>
+            <h2 id="price-dialog-title">어떤 화면으로 들어갈까요?</h2>
+            <p>필요한 접속 유형을 누르면 바로 이동합니다.</p>
+          </div>
+
+          <div class="price-role-list">
+            <a class="price-role price-role--primary" href="https://price.nangok.app/admin">
+              <span class="price-role__badge">가장 자주 사용</span>
+              <span class="price-role__text">
+                <strong>관리자</strong>
+                <small>제품과 가격을 관리하는 화면</small>
+              </span>
+              <span class="price-role__arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+              </span>
+            </a>
+
+            <a class="price-role" href="https://price.nangok.app/center">
+              <span class="price-role__text">
+                <strong>센터</strong>
+                <small>센터용 가격표 화면</small>
+              </span>
+              <span class="price-role__arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+              </span>
+            </a>
+
+            <a class="price-role" href="https://price.nangok.app/">
+              <span class="price-role__text">
+                <strong>사업자</strong>
+                <small>사업자용 가격표 화면</small>
+              </span>
+              <span class="price-role__arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </dialog>
+
       <footer class="site-footer">
         <span class="footer-line"></span>
         <p>nangok.app</p>
       </footer>
     </div>
+
+    <script>
+      const priceDialog = document.getElementById("price-dialog");
+      const openPriceDialogButton = document.querySelector("[data-open-price-dialog]");
+      const closePriceDialogButton = document.querySelector("[data-close-price-dialog]");
+
+      openPriceDialogButton.addEventListener("click", () => priceDialog.showModal());
+      closePriceDialogButton.addEventListener("click", () => priceDialog.close());
+
+      priceDialog.addEventListener("click", (event) => {
+        if (event.target === priceDialog) priceDialog.close();
+      });
+
+    </script>
   </body>
 </html>

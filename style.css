@@ -569,3 +569,231 @@ main {
     transition: none !important;
   }
 }
+
+/* Price access dialog */
+button.app-card {
+  width: 100%;
+  border: 1px solid rgba(213, 226, 233, 0.95);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.price-dialog {
+  width: min(560px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.price-dialog::backdrop {
+  background: rgba(18, 35, 43, 0.52);
+  backdrop-filter: blur(5px);
+}
+
+.price-dialog__panel {
+  position: relative;
+  padding: 34px;
+  border: 1px solid rgba(213, 226, 233, 0.98);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(12, 50, 68, 0.28);
+}
+
+.price-dialog__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #53666f;
+  cursor: pointer;
+}
+
+.price-dialog__close svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.price-dialog__header {
+  padding-right: 48px;
+  margin-bottom: 24px;
+}
+
+.price-dialog__eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--atomy-blue-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.price-dialog__header h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 760;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.price-dialog__header p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.price-role-list {
+  display: grid;
+  gap: 12px;
+}
+
+.price-role {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 94px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #ffffff;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.price-role:hover {
+  transform: translateY(-2px);
+  border-color: var(--atomy-blue);
+  box-shadow: 0 12px 30px rgba(18, 68, 91, 0.1);
+}
+
+.price-role--primary {
+  padding-top: 30px;
+  border-color: rgba(0, 181, 239, 0.44);
+  background: linear-gradient(135deg, #ffffff, #f2fbfe);
+}
+
+.price-role__badge {
+  position: absolute;
+  top: 9px;
+  left: 22px;
+  color: var(--atomy-blue-deep);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.price-role__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-role__text strong {
+  font-size: 21px;
+  font-weight: 760;
+  letter-spacing: -0.025em;
+}
+
+.price-role__text small {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.price-role__arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--atomy-blue);
+  color: #ffffff;
+}
+
+.price-role__arrow svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.price-role__status {
+  color: #94a2a9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.price-role[aria-disabled="true"] {
+  background: #f7f9fa;
+  color: #7f8d94;
+  cursor: default;
+}
+
+.price-role[aria-disabled="true"]:hover {
+  transform: none;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+@media (max-width: 560px) {
+  .price-dialog {
+    width: calc(100% - 24px);
+  }
+
+  .price-dialog__panel {
+    padding: 27px 18px 20px;
+    border-radius: 18px;
+  }
+
+  .price-dialog__close {
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .price-dialog__header {
+    padding-right: 42px;
+    margin-bottom: 19px;
+  }
+
+  .price-dialog__header h2 {
+    font-size: 25px;
+  }
+
+  .price-role {
+    min-height: 86px;
+    padding: 18px;
+  }
+
+  .price-role--primary {
+    padding-top: 29px;
+  }
+
+  .price-role__badge {
+    left: 18px;
+  }
+
+  .price-role__text strong {
+    font-size: 19px;
+  }
+}
