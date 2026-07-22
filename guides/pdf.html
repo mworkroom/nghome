@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00b5ef" />
+    <meta
+      name="description"
+      content="새로 만든 교육자료를 줌에서 보여주는 방법"
+    />
+    <title>새로 만든 교육자료 줌 공유 | NANGOK</title>
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
+    />
+
+    <style>
+      :root {
+        --atomy-blue: #00b5ef;
+        --atomy-blue-deep: #008fd0;
+        --ink: #17232b;
+        --muted: #697982;
+        --line: #dfe9ee;
+        --page: #f5fafc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: var(--page);
+        color: var(--ink);
+        font-family: "Pretendard Variable", Pretendard, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          linear-gradient(180deg, #ffffff 0, #ffffff 18rem, var(--page) 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .page {
+        width: min(980px, 100%);
+        margin: 0 auto;
+        padding: 0 32px 64px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 88px;
+        border-bottom: 1px solid rgba(211, 226, 233, 0.82);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 52px;
+      }
+
+      .brand-mark {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-mark span {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        background: var(--atomy-blue);
+      }
+
+      .brand-mark span:nth-child(1) {
+        top: 1px;
+        left: 12px;
+        width: 13px;
+        height: 13px;
+      }
+
+      .brand-mark span:nth-child(2) {
+        bottom: 3px;
+        left: 1px;
+        width: 19px;
+        height: 19px;
+        background: #55cdf4;
+      }
+
+      .brand-mark span:nth-child(3) {
+        right: 1px;
+        bottom: 3px;
+        width: 19px;
+        height: 19px;
+        background: var(--atomy-blue-deep);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand-text strong {
+        font-size: 17px;
+        font-weight: 780;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-text small {
+        margin-top: 6px;
+        color: #8a9aa3;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        color: #53666f;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .back-link svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      main {
+        padding-top: 58px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--atomy-blue-deep);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(32px, 5vw, 50px);
+        font-weight: 780;
+        line-height: 1.18;
+        letter-spacing: -0.045em;
+      }
+
+      .description {
+        margin: 16px 0 38px;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 520;
+        line-height: 1.6;
+      }
+
+      .guide-list {
+        display: grid;
+        gap: 24px;
+      }
+
+      figure {
+        margin: 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0 16px 42px rgba(18, 68, 91, 0.09);
+      }
+
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      figcaption {
+        padding: 14px 4px 2px;
+        color: #63747d;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .bottom-actions {
+        display: flex;
+        justify-content: center;
+        padding-top: 34px;
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          padding: 0 14px 42px;
+        }
+
+        header {
+          min-height: 76px;
+        }
+
+        .brand-text {
+          display: none;
+        }
+
+        .back-link {
+          padding: 0 13px;
+          font-size: 13px;
+        }
+
+        main {
+          padding-top: 38px;
+        }
+
+        h1 {
+          font-size: 31px;
+        }
+
+        .description {
+          margin-bottom: 26px;
+          font-size: 15px;
+        }
+
+        .guide-list {
+          gap: 16px;
+        }
+
+        figure {
+          padding: 8px;
+          border-radius: 13px;
+        }
+
+        figure img {
+          border-radius: 7px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="../index.html" aria-label="NANGOK 홈으로 돌아가기">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-text">
+            <strong>NANGOK</strong>
+            <small>WORKSPACE</small>
+          </span>
+        </a>
+
+        <a class="back-link" href="../guide.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg>
+          사용 안내로 돌아가기
+        </a>
+      </header>
+
+      <main>
+        <p class="eyebrow">ZOOM GUIDE</p>
+        <h1>새로 만든 교육자료를<br />줌에서 보여주기</h1>
+        <p class="description">아래 그림을 위에서부터 차례대로 확인하세요.</p>
+
+        <div class="guide-list">
+          <figure>
+            <img
+              src="../assets/guides/pdf_guide_01.png"
+              alt="새로 만든 교육자료를 줌에서 보여주는 방법 첫 번째 안내"
+              loading="eager"
+            />
+            <figcaption>1 / 2</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="../assets/guides/pdf_guide_02.png"
+              alt="새로 만든 교육자료를 줌에서 보여주는 방법 두 번째 안내"
+              loading="lazy"
+            />
+            <figcaption>2 / 2</figcaption>
+          </figure>
+        </div>
+
+        <div class="bottom-actions">
+          <a class="back-link" href="../guide.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg>
+            사용 안내로 돌아가기
+          </a>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
