@@ -530,6 +530,367 @@ main {
   }
 }
 
+/* Step-by-step guide pages */
+body.guide-page {
+  background: linear-gradient(180deg, #ffffff 0, #ffffff 18rem, var(--page) 100%);
+}
+
+.guide-page .page {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: 0 32px 64px;
+}
+
+.guide-page header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+  border-bottom: 1px solid rgba(211, 226, 233, 0.82);
+}
+
+.guide-page .brand {
+  gap: 12px;
+}
+
+.guide-page .brand-mark {
+  width: 38px;
+  height: 38px;
+}
+
+.guide-page .brand-mark span:nth-child(1) {
+  top: 1px;
+  left: 12px;
+  width: 13px;
+  height: 13px;
+}
+
+.guide-page .brand-mark span:nth-child(2),
+.guide-page .brand-mark span:nth-child(3) {
+  width: 19px;
+  height: 19px;
+}
+
+.guide-page .brand-text strong {
+  font-size: 17px;
+}
+
+.guide-page .brand-text small {
+  margin-top: 6px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #ffffff;
+  color: #53666f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.guide-page main {
+  padding: 58px 0 0;
+}
+
+.guide-page .eyebrow {
+  margin: 0 0 12px;
+  letter-spacing: 0.12em;
+}
+
+.guide-page h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 780;
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+}
+
+.guide-page .description {
+  margin: 16px 0 38px;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 520;
+  line-height: 1.6;
+}
+
+.guide-page .guide-list {
+  display: grid;
+  gap: 24px;
+}
+
+.guide-page--ai .guide-list {
+  gap: 28px;
+}
+
+.guide-page .guide-step {
+  display: grid;
+  gap: 18px;
+}
+
+.guide-page figure {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 16px 42px rgba(18, 68, 91, 0.09);
+}
+
+.guide-page figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.guide-page .bottom-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 34px;
+}
+
+.guide-page--ai .prompt-card {
+  padding: 26px;
+  border: 1px solid rgba(0, 181, 239, 0.28);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #f2fbfe);
+  box-shadow: 0 16px 42px rgba(18, 68, 91, 0.08);
+}
+
+.guide-page--ai .prompt-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.guide-page--ai .prompt-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--atomy-blue-deep);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.guide-page--ai .prompt-head h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 760;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+
+.guide-page--ai .prompt-help {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.55;
+}
+
+.guide-page--ai .copy-button {
+  flex: 0 0 auto;
+  min-width: 118px;
+  min-height: 50px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--atomy-blue-deep);
+  color: #ffffff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 760;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 143, 208, 0.22);
+}
+
+.guide-page--ai .copy-button:hover {
+  background: #007fba;
+}
+
+.guide-page--ai .copy-button:focus-visible,
+.back-link:focus-visible,
+.guide-page--ai textarea:focus-visible {
+  outline: 4px solid rgba(0, 181, 239, 0.25);
+  outline-offset: 3px;
+}
+
+.guide-page--ai textarea {
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  padding: 20px;
+  border: 1px solid #cadbe3;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #24333b;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.guide-page--ai textarea.prompt-short {
+  min-height: 190px;
+}
+
+.guide-page--ai .copy-status {
+  min-height: 22px;
+  margin: 10px 2px 0;
+  color: #0879a9;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.guide-page--ai .finish-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+  color: #53666f;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .guide-page--ai .page {
+    padding: 0 14px 42px;
+  }
+
+  .guide-page--ai header {
+    min-height: 76px;
+  }
+
+  .guide-page--ai .brand-text {
+    display: none;
+  }
+
+  .guide-page--ai .back-link {
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
+  .guide-page--ai main {
+    padding: 38px 0 0;
+  }
+
+  .guide-page--ai h1 {
+    font-size: 31px;
+  }
+
+  .guide-page--ai .description {
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+
+  .guide-page--ai .guide-list {
+    gap: 20px;
+  }
+
+  .guide-page--ai figure {
+    padding: 8px;
+    border-radius: 13px;
+  }
+
+  .guide-page--ai figure img {
+    border-radius: 7px;
+  }
+
+  .guide-page--ai .prompt-card {
+    padding: 19px 14px 14px;
+    border-radius: 14px;
+  }
+
+  .guide-page--ai .prompt-head {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .guide-page--ai .prompt-head h2 {
+    font-size: 21px;
+  }
+
+  .guide-page--ai .copy-button {
+    width: 100%;
+    min-height: 54px;
+  }
+
+  .guide-page--ai textarea {
+    min-height: 560px;
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .guide-page--ai textarea.prompt-short {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 560px) {
+  .guide-page--pdf .page {
+    padding: 0 14px 42px;
+  }
+
+  .guide-page--pdf header {
+    min-height: 76px;
+  }
+
+  .guide-page--pdf .brand-text {
+    display: none;
+  }
+
+  .guide-page--pdf .back-link {
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
+  .guide-page--pdf main {
+    padding: 38px 0 0;
+  }
+
+  .guide-page--pdf h1 {
+    font-size: 31px;
+  }
+
+  .guide-page--pdf .description {
+    margin-bottom: 26px;
+    font-size: 15px;
+  }
+
+  .guide-page--pdf .guide-list {
+    gap: 16px;
+  }
+
+  .guide-page--pdf figure {
+    padding: 8px;
+    border-radius: 13px;
+  }
+
+  .guide-page--pdf figure img {
+    border-radius: 7px;
+  }
+}
+
 @media (max-width: 390px) {
   .tool-count {
     width: 10px;
