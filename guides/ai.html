@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00b5ef" />
+    <meta
+      name="description"
+      content="ChatGPT로 교육자료 그림을 만드는 방법"
+    />
+    <title>ChatGPT로 교육자료 만들기 | NANGOK</title>
+
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
+    />
+
+    <style>
+      :root {
+        --atomy-blue: #00b5ef;
+        --atomy-blue-deep: #008fd0;
+        --ink: #17232b;
+        --muted: #697982;
+        --line: #dfe9ee;
+        --page: #f5fafc;
+        --surface: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: var(--page);
+        color: var(--ink);
+        font-family: "Pretendard Variable", Pretendard, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          linear-gradient(180deg, #ffffff 0, #ffffff 18rem, var(--page) 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      button,
+      textarea {
+        font: inherit;
+      }
+
+      .page {
+        width: min(980px, 100%);
+        margin: 0 auto;
+        padding: 0 32px 64px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 88px;
+        border-bottom: 1px solid rgba(211, 226, 233, 0.82);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 52px;
+      }
+
+      .brand-mark {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-mark span {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        background: var(--atomy-blue);
+      }
+
+      .brand-mark span:nth-child(1) {
+        top: 1px;
+        left: 12px;
+        width: 13px;
+        height: 13px;
+      }
+
+      .brand-mark span:nth-child(2) {
+        bottom: 3px;
+        left: 1px;
+        width: 19px;
+        height: 19px;
+        background: #55cdf4;
+      }
+
+      .brand-mark span:nth-child(3) {
+        right: 1px;
+        bottom: 3px;
+        width: 19px;
+        height: 19px;
+        background: var(--atomy-blue-deep);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand-text strong {
+        font-size: 17px;
+        font-weight: 780;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-text small {
+        margin-top: 6px;
+        color: #8a9aa3;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #ffffff;
+        color: #53666f;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .back-link svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      main {
+        padding-top: 58px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--atomy-blue-deep);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(32px, 5vw, 50px);
+        font-weight: 780;
+        line-height: 1.18;
+        letter-spacing: -0.045em;
+      }
+
+      .description {
+        margin: 16px 0 38px;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 520;
+        line-height: 1.6;
+      }
+
+      .guide-list {
+        display: grid;
+        gap: 28px;
+      }
+
+      .guide-step {
+        display: grid;
+        gap: 18px;
+      }
+
+      figure {
+        margin: 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--surface);
+        box-shadow: 0 16px 42px rgba(18, 68, 91, 0.09);
+      }
+
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .prompt-card {
+        padding: 26px;
+        border: 1px solid rgba(0, 181, 239, 0.28);
+        border-radius: 18px;
+        background: linear-gradient(145deg, #ffffff, #f2fbfe);
+        box-shadow: 0 16px 42px rgba(18, 68, 91, 0.08);
+      }
+
+      .prompt-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .prompt-label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--atomy-blue-deep);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .prompt-head h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 760;
+        line-height: 1.3;
+        letter-spacing: -0.035em;
+      }
+
+      .prompt-help {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 550;
+        line-height: 1.55;
+      }
+
+      .copy-button {
+        flex: 0 0 auto;
+        min-width: 118px;
+        min-height: 50px;
+        padding: 0 19px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--atomy-blue-deep);
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 760;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(0, 143, 208, 0.22);
+      }
+
+      .copy-button:hover {
+        background: #007fba;
+      }
+
+      .copy-button:focus-visible,
+      .back-link:focus-visible,
+      textarea:focus-visible {
+        outline: 4px solid rgba(0, 181, 239, 0.25);
+        outline-offset: 3px;
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        min-height: 650px;
+        padding: 20px;
+        border: 1px solid #cadbe3;
+        border-radius: 13px;
+        background: #ffffff;
+        color: #24333b;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.7;
+        resize: vertical;
+      }
+
+      textarea.prompt-short {
+        min-height: 190px;
+      }
+
+      .copy-status {
+        min-height: 22px;
+        margin: 10px 2px 0;
+        color: #0879a9;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .finish-card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #ffffff;
+        color: #53666f;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .bottom-actions {
+        display: flex;
+        justify-content: center;
+        padding-top: 34px;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          padding: 0 14px 42px;
+        }
+
+        header {
+          min-height: 76px;
+        }
+
+        .brand-text {
+          display: none;
+        }
+
+        .back-link {
+          padding: 0 13px;
+          font-size: 13px;
+        }
+
+        main {
+          padding-top: 38px;
+        }
+
+        h1 {
+          font-size: 31px;
+        }
+
+        .description {
+          margin-bottom: 26px;
+          font-size: 15px;
+        }
+
+        .guide-list {
+          gap: 20px;
+        }
+
+        figure {
+          padding: 8px;
+          border-radius: 13px;
+        }
+
+        figure img {
+          border-radius: 7px;
+        }
+
+        .prompt-card {
+          padding: 19px 14px 14px;
+          border-radius: 14px;
+        }
+
+        .prompt-head {
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .prompt-head h2 {
+          font-size: 21px;
+        }
+
+        .copy-button {
+          width: 100%;
+          min-height: 54px;
+        }
+
+        textarea {
+          min-height: 560px;
+          padding: 15px;
+          font-size: 15px;
+        }
+
+        textarea.prompt-short {
+          min-height: 180px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="../index.html" aria-label="NANGOK 홈으로 돌아가기">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-text">
+            <strong>NANGOK</strong>
+            <small>WORKSPACE</small>
+          </span>
+        </a>
+
+        <a class="back-link" href="../guide.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg>
+          이전 화면으로 돌아가기
+        </a>
+      </header>
+
+      <main>
+        <p class="eyebrow">CHATGPT GUIDE</p>
+        <h1>ChatGPT로 교육자료<br />그림 만들기</h1>
+        <p class="description">그림을 보고 따라 하면서, 아래 창의 내용을 고친 뒤 복사하세요.</p>
+
+        <div class="guide-list">
+          <section class="guide-step" aria-labelledby="prompt-one-title">
+            <figure>
+              <img
+                src="../assets/guides/ai_guide_01.png"
+                alt="ChatGPT로 교육자료 그림을 만들기 위한 첫 번째 안내"
+                loading="eager"
+              />
+            </figure>
+
+            <div class="prompt-card">
+              <div class="prompt-head">
+                <div>
+                  <span class="prompt-label">첫 번째 복붙 내용</span>
+                  <h2 id="prompt-one-title">파일 이름을 고친 뒤 복사하세요</h2>
+                </div>
+                <button class="copy-button" type="button" data-copy="prompt-one">전체 복사</button>
+              </div>
+              <p class="prompt-help">대괄호로 표시된 교육자료 파일명과 제품사진 파일명을 실제 이름으로 바꾸면 됩니다.</p>
+              <textarea id="prompt-one" spellcheck="false">먼저 프로젝트의 `01_ATOMY_MASTER_RULES.md` 전체를 읽어 주세요.
+
+
+첨부된 
+[교육자료의 정확한 파일명].pdf
+파일을 공식 내용과 수치의 근거로 사용해 주세요.
+
+
+
+함께 첨부한
+[제품사진].png 
+파일은 변경해서는 안 되는 공식 제품 자산입니다. 
+
+
+제품 패키지를 새로 디자인하거나 비슷한 제품으로 다시 그리지 말고,
+첨부한 제품 사진 속 상자와 용기를 그대로 분리하여 사용해 주세요.
+
+
+한국 회원들을 위한 발표 이미지 시리즈의 기획안만 작성해 주세요.
+아직 이미지는 생성하지 마세요.
+
+
+먼저 독립적인 교육 메시지와 정보 밀도를 분석한 뒤
+필요한 이미지 수를 결정해 주세요.
+
+
+각 이미지에 대해 다음 내용을 보여주세요.
+
+- 이미지 목적
+- 핵심 메시지
+- 화면에 표시할 문구
+- 주요 시각 구조
+- 사용할 공식 자료
+- 제품 사진 사용 방식
+- 정보 밀도 판정
+- 분리 필요 여부</textarea>
+              <p class="copy-status" id="prompt-one-status" aria-live="polite"></p>
+            </div>
+          </section>
+
+          <section class="guide-step" aria-labelledby="prompt-two-title">
+            <figure>
+              <img
+                src="../assets/guides/ai_guide_02.png"
+                alt="ChatGPT로 교육자료 그림을 만들기 위한 두 번째 안내"
+                loading="lazy"
+              />
+            </figure>
+
+            <div class="prompt-card">
+              <div class="prompt-head">
+                <div>
+                  <span class="prompt-label">두 번째 복붙 내용</span>
+                  <h2 id="prompt-two-title">제품사진 이름을 확인한 뒤 복사하세요</h2>
+                </div>
+                <button class="copy-button" type="button" data-copy="prompt-two">전체 복사</button>
+              </div>
+              <p class="prompt-help">다음 그림부터는 이미지 번호만 2번, 3번처럼 바꾸어 같은 내용을 다시 사용하면 됩니다.</p>
+              <textarea class="prompt-short" id="prompt-two" spellcheck="false">구상안대로 1번 이미지를 만들어줘.
+제품 패키지는 첨부한 
+[제품사진].png 
+속 제품을 그대로 사용하고 새로 디자인하지 마.</textarea>
+              <p class="copy-status" id="prompt-two-status" aria-live="polite"></p>
+            </div>
+          </section>
+
+          <section class="guide-step">
+            <figure>
+              <img
+                src="../assets/guides/ai_guide_03.png"
+                alt="ChatGPT로 교육자료 그림을 만드는 마지막 안내"
+                loading="lazy"
+              />
+            </figure>
+            <div class="finish-card">여기까지 하면 교육자료 그림 만들기가 끝납니다.</div>
+          </section>
+        </div>
+
+        <div class="bottom-actions">
+          <a class="back-link" href="../guide.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg>
+            이전 화면으로 돌아가기
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const copyButtons = document.querySelectorAll("[data-copy]");
+
+      async function copyPrompt(button) {
+        const textarea = document.getElementById(button.dataset.copy);
+        const status = document.getElementById(`${button.dataset.copy}-status`);
+        const originalLabel = button.textContent;
+
+        try {
+          await navigator.clipboard.writeText(textarea.value);
+        } catch (error) {
+          textarea.focus();
+          textarea.select();
+          document.execCommand("copy");
+          textarea.setSelectionRange(0, 0);
+        }
+
+        button.textContent = "복사 완료";
+        status.textContent = "복사했습니다. ChatGPT 입력창에 붙여넣으세요.";
+
+        window.setTimeout(() => {
+          button.textContent = originalLabel;
+          status.textContent = "";
+        }, 2500);
+      }
+
+      copyButtons.forEach((button) => {
+        button.addEventListener("click", () => copyPrompt(button));
+      });
+    </script>
+  </body>
+</html>
