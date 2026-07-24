@@ -46,7 +46,12 @@
         <p class="description">아래 그림을 보고 따라 해주세요.</p>
 
         <div class="guide-list">
-          <section class="guide-step" aria-labelledby="prompt-one-title">
+          <section class="guide-step" aria-labelledby="step-one-title">
+            <h2 class="guide-step-title" id="step-one-title">
+              <span class="guide-step-number">Step 1:</span>
+              <span>챗지피티 <span class="guide-step-highlight">애터미 교육 자료 생성기</span> 프로젝트에서 새 채팅을 시작해요.</span>
+            </h2>
+
             <figure>
               <img
                 src="../assets/guides/ai_guide_01.png"
@@ -59,31 +64,48 @@
               <div class="prompt-head">
                 <div>
                   <span class="prompt-label">첫 번째 복붙 내용</span>
-                  <h2 id="prompt-one-title">파일 이름을 고친 뒤 복사하세요</h2>
+                  <h3 id="prompt-one-title">파일명이 맞는지 확인한 뒤 복사하세요</h3>
                 </div>
                 <button class="copy-button" type="button" data-copy="prompt-one">전체 복사</button>
               </div>
-              <p class="prompt-help">대괄호로 표시된 교육자료 파일명과 제품사진 파일명을 실제 이름으로 바꾸면 됩니다.</p>
+              <p class="prompt-help">필요한 경우 교육자료 파일명을 실제 이름으로 바꾸면 됩니다.</p>
               <textarea id="prompt-one" spellcheck="false">
 먼저 프로젝트의 `01_ATOMY_MASTER_RULES.md` 전체를 읽어 주세요.
 
-첨부된 
-[교육자료의 정확한 파일명].pdf
-파일을 공식 내용과 수치의 근거로 사용해 주세요.
+이번 작업의 파일 역할은 다음과 같습니다.
 
-함께 첨부한
-[제품사진].png 
-파일은 변경해서는 안 되는 공식 제품 자산입니다. 
+[공식 내용 자료]
+- `1-1.jpg`
+- `1-2.jpg`
+- `2-1.jpg`
+- `2-2.jpg`
+- `3.jpg`
 
+이런 형태의 이미지 파일만 이번 교육자료의 공식 내용, 문구, 수치, 교육 메시지의 근거로 사용해 주세요.
 
-제품 패키지를 새로 디자인하거나 비슷한 제품으로 다시 그리지 말고, 
-첨부한 제품 사진 속 상자와 용기를 그대로 분리하여 사용해 주세요.
+`2-1.jpg`, `2-2.jpg`처럼 앞의 번호가 같은 파일은 동일한 주제를 다루는 하나의 자료 그룹입니다.
+
+다른 프로젝트 파일이나 PDF에서 빠진 내용을 추가로 가져오지 마세요.
+
+[공식 제품 자산]
+- `제품사진.png`
+- `제품사진.jpg`
+
+이 파일은 변경해서는 안 되는 공식 제품 자산입니다.
+제품이 필요한 이미지에만 사용해 주세요.
+
+제품 패키지를 새로 디자인하거나 비슷한 제품으로 다시 그리지 말고, 제품을 사용하는 경우에는 첨부한 제품 사진 속 상자와 용기를 그대로 분리하여 사용해 주세요.
+
+[시각 디자인 참고 자료]
+- `99_VISUAL_STYLE_REFERENCE_ONLY.pdf`
+
+이 파일은 디자인 품질, 레이아웃, 간격, 조명, 재질, 타이포그래피 수준만 참고해 주세요.
+이 파일에 있는 문구, 수치, 제품 정보, 교육 내용은 이번 작업의 내용 근거로 사용하지 마세요.
 
 한국 회원들을 위한 발표 이미지 시리즈의 기획안만 작성해 주세요.
 아직 이미지는 생성하지 마세요.
 
 먼저 독립적인 교육 메시지와 정보 밀도를 분석한 뒤 필요한 이미지 수를 결정해 주세요.
-
 
 각 이미지에 대해 다음 내용을 보여주세요.
 
@@ -91,45 +113,54 @@
 - 핵심 메시지
 - 화면에 표시할 문구
 - 주요 시각 구조
-- 사용할 공식 자료
+- 사용할 공식 내용 자료
+- 제품 포함 여부: 필수 / 선택 / 없음
 - 제품 사진 사용 방식
 - 정보 밀도 판정
-- 분리 필요 여부</textarea>
+- 분리 필요 여부
+              </textarea>
               <p class="copy-status" id="prompt-one-status" aria-live="polite"></p>
             </div>
           </section>
 
-          <section class="guide-step" aria-labelledby="prompt-two-title">
-            <figure>
-              <img
-                src="../assets/guides/ai_guide_02.png"
-                alt="ChatGPT로 교육자료 그림을 만들기 위한 두 번째 안내"
-                loading="lazy"
-              />
-            </figure>
+          <section class="guide-step" aria-labelledby="step-two-title">
+            <h2 class="guide-step-title" id="step-two-title">
+              <span class="guide-step-number">Step 2:</span>
+              <span>이미지 구상안을 충분히 검토한 뒤 다음 요청을 해 주세요.</span>
+            </h2>
 
             <div class="prompt-card">
               <div class="prompt-head">
                 <div>
                   <span class="prompt-label">두 번째 복붙 내용</span>
-                  <h2 id="prompt-two-title">제품사진 이름을 확인한 뒤 복사하세요</h2>
+                  <h3 id="prompt-two-title">제품사진 이름을 확인한 뒤 복사하세요</h3>
                 </div>
                 <button class="copy-button" type="button" data-copy="prompt-two">전체 복사</button>
               </div>
               <p class="prompt-help">다음 그림부터는 이미지 번호만 2번, 3번처럼 바꾸어 같은 내용을 다시 사용하면 됩니다.</p>
               <textarea class="prompt-short" id="prompt-two" spellcheck="false">
-구상안대로 1번 이미지를 만들어줘.
+구상안대로 1 번 이미지를 만들어줘.
 
-[제품사진].png 
-제품 패키지는 첨부한 이미지 제품을 그대로 사용하고 새로 디자인하지 마.</textarea>
+이미지 구상안에 표시된 `제품 포함 여부: 필수 / 선택 / 없음` 결정을 그대로 따라줘.
+
+제품 포함 여부가 `없음`이면 제품 패키지를 넣지 마.
+`선택`이면 핵심 메시지나 주요 시각 구조를 방해하지 않을 때만 사용해.
+
+제품을 사용하는 경우에는 `제품사진.png` 또는 `제품사진.jpg` 속 공식 패키지를 그대로 사용하고 새로 디자인하지 마.
+              </textarea>
               <p class="copy-status" id="prompt-two-status" aria-live="polite"></p>
             </div>
           </section>
 
-          <section class="guide-step">
+          <section class="guide-step" aria-labelledby="step-three-title">
+            <h2 class="guide-step-title" id="step-three-title">
+              <span class="guide-step-number">Step 3:</span>
+              <span>다음부터는 같은 프롬프트를 숫자만 바꿔서 요청해주세요.</span>
+            </h2>
+
             <figure>
               <img
-                src="../assets/guides/ai_guide_03.png"
+                src="../assets/guides/ai_guide_02.png"
                 alt="ChatGPT로 교육자료 그림을 만드는 마지막 안내"
                 loading="lazy"
               />

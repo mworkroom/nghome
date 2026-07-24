@@ -642,6 +642,33 @@ body.guide-page {
   gap: 18px;
 }
 
+.guide-page--ai .guide-step-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 740;
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+}
+
+.guide-page--ai .guide-step-number {
+  flex: 0 0 auto;
+  color: var(--atomy-blue-deep);
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: 0.01em;
+}
+
+.guide-step-highlight {
+  flex: 0 0 auto;
+  color: var(--atomy-blue-deep);
+  font-weight: 850;
+  letter-spacing: 0.01em;
+}
+
 .guide-page figure {
   margin: 0;
   padding: 14px;
@@ -677,7 +704,7 @@ body.guide-page {
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 14px;
+  margin-bottom: -12px;
 }
 
 .guide-page--ai .prompt-label {
@@ -805,6 +832,18 @@ body.guide-page {
 
   .guide-page--ai .guide-list {
     gap: 20px;
+  }
+
+  .guide-page--ai .guide-step-title {
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .guide-page--ai .guide-step-number {
+    padding-top: 4px;
+    font-size: 13px;
   }
 
   .guide-page--ai figure {
