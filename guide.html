@@ -18,6 +18,96 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css"
     />
     <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      .guide-task-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .guide-task-grid .app-card {
+        grid-template-columns: 62px minmax(0, 1fr) 36px;
+        gap: 16px;
+        min-height: 190px;
+        padding: 28px 22px;
+      }
+
+      .guide-task-grid .app-card__icon {
+        width: 62px;
+        height: 62px;
+        border-radius: 15px;
+      }
+
+      .guide-task-grid .app-card__icon svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .guide-task-grid .app-card__content strong {
+        font-size: 22px;
+        line-height: 1.35;
+      }
+
+      .guide-task-grid .app-card__arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      @media (max-width: 1050px) {
+        .guide-task-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .guide-task-grid .app-card {
+          grid-template-columns: 74px minmax(0, 1fr) 42px;
+          min-height: 156px;
+          padding: 28px;
+        }
+
+        .guide-task-grid .app-card__icon {
+          width: 74px;
+          height: 74px;
+        }
+
+        .guide-task-grid .app-card__icon svg {
+          width: 42px;
+          height: 42px;
+        }
+
+        .guide-task-grid .app-card__arrow {
+          width: 42px;
+          height: 42px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .guide-task-grid .app-card {
+          grid-template-columns: 58px minmax(0, 1fr) 34px;
+          gap: 15px;
+          min-height: 130px;
+          padding: 23px 18px 23px 21px;
+        }
+
+        .guide-task-grid .app-card__icon {
+          width: 58px;
+          height: 58px;
+          border-radius: 14px;
+        }
+
+        .guide-task-grid .app-card__icon svg {
+          width: 34px;
+          height: 34px;
+        }
+
+        .guide-task-grid .app-card__content strong {
+          font-size: 20px;
+        }
+
+        .guide-task-grid .app-card__arrow {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -45,17 +135,15 @@
       <main>
         <section class="hero" aria-labelledby="page-title">
           <p class="eyebrow">WORK GUIDE</p>
-          <h1 id="page-title">어떤 업무에 도움이 필요하신가요?</h1>
-          <p class="hero-description">필요한 메뉴를 누르면 단계별로 확인할 수 있습니다.</p>
+          <h1 id="page-title">지금 하려는 일을 선택하세요</h1>
+          <p class="hero-description">현재 상황에 맞는 메뉴를 누르면 바로 시작할 수 있습니다.</p>
         </section>
 
-        <section class="app-grid" aria-label="사용 안내 목록">
-          <button
+        <section class="app-grid guide-task-grid" aria-label="사용 안내 단계">
+          <a
             class="app-card"
+            href="./guides/ai.html"
             style="--accent: #527d88; --accent-soft: #eaf2f4"
-            type="button"
-            data-open-material-dialog
-            aria-haspopup="dialog"
           >
             <span class="app-card__icon" aria-hidden="true">
               <svg viewBox="0 0 48 48" role="img">
@@ -68,14 +156,38 @@
               </svg>
             </span>
             <span class="app-card__content">
-              <span class="app-card__category">자료 준비</span>
-              <strong>교육자료 만들기</strong>
-              <span class="app-card__description">그림 만들기부터 줌에서 보여주기까지</span>
+              <span class="app-card__category">1단계</span>
+              <strong>새 교육자료를 처음부터 만들기</strong>
+              <span class="app-card__description">챗지피티로 그림을 만드는 방법부터 시작</span>
             </span>
             <span class="app-card__arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
             </span>
-          </button>
+          </a>
+
+          <a
+            class="app-card"
+            href="https://present.nangok.app/"
+            style="--accent: #168cb9; --accent-soft: #e8f4f8"
+          >
+            <span class="app-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <rect x="7" y="9" width="26" height="30" rx="4"></rect>
+                <path d="M14 17h12"></path>
+                <path d="M14 24h12"></path>
+                <path d="M14 31h8"></path>
+                <path d="M33 19h8v20H15"></path>
+              </svg>
+            </span>
+            <span class="app-card__content">
+              <span class="app-card__category">2단계</span>
+              <strong>그림은 만들었고 PDF로 합치기</strong>
+              <span class="app-card__description">만든 그림을 순서대로 정리하고 PDF로 저장</span>
+            </span>
+            <span class="app-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
 
           <button
             class="app-card"
@@ -93,9 +205,9 @@
               </svg>
             </span>
             <span class="app-card__content">
-              <span class="app-card__category">화면 보여주기</span>
-              <strong>줌 화면 공유</strong>
-              <span class="app-card__description">교육자료를 줌에서 보여주는 방법</span>
+              <span class="app-card__category">3단계</span>
+              <strong>Zoom에서 보여주기</strong>
+              <span class="app-card__description">PDF 또는 PPTX 화면 공유 방법</span>
             </span>
             <span class="app-card__arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
@@ -104,52 +216,6 @@
         </section>
       </main>
 
-      <dialog class="price-dialog" id="material-dialog" aria-labelledby="material-dialog-title">
-        <div class="price-dialog__panel">
-          <button class="price-dialog__close" type="button" data-close-material-dialog aria-label="닫기">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
-          </button>
-
-          <div class="price-dialog__header">
-            <span class="price-dialog__eyebrow">교육자료 만들기</span>
-            <h2 id="material-dialog-title">어디부터 하시겠어요?</h2>
-            <p>필요한 단계만 바로 선택할 수 있습니다.</p>
-          </div>
-
-          <div class="price-role-list">
-            <a class="price-role" href="./guides/ai.html">
-              <span class="price-role__text">
-                <strong>1단계 · 챗지피티로 그림 만들기</strong>
-                <small>챗지피티에서 교육자료 그림을 만드는 방법</small>
-              </span>
-              <span class="price-role__arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
-              </span>
-            </a>
-
-            <a class="price-role price-role--primary" href="https://present.nangok.app/">
-              <span class="price-role__text">
-                <strong>2단계 · 그림을 한 파일로 정리하기</strong>
-                <small>만든 그림을 순서대로 정리하고 PDF로 저장합니다.</small>
-              </span>
-              <span class="price-role__arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
-              </span>
-            </a>
-
-            <a class="price-role" href="./guides/pdf.html">
-              <span class="price-role__text">
-                <strong>3단계 · 줌에서 보여주기</strong>
-                <small>완성한 교육자료를 줌에서 공유하는 방법</small>
-              </span>
-              <span class="price-role__arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"></path></svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </dialog>
-
       <dialog class="price-dialog" id="zoom-dialog" aria-labelledby="zoom-dialog-title">
         <div class="price-dialog__panel">
           <button class="price-dialog__close" type="button" data-close-zoom-dialog aria-label="닫기">
@@ -157,8 +223,8 @@
           </button>
 
           <div class="price-dialog__header">
-            <span class="price-dialog__eyebrow">줌 화면 공유</span>
-            <h2 id="zoom-dialog-title">어떤 자료를 보여주실 건가요?</h2>
+            <span class="price-dialog__eyebrow">Zoom에서 보여주기</span>
+            <h2 id="zoom-dialog-title">어떤 파일을 보여주실 건가요?</h2>
           </div>
 
           <div class="price-role-list">
@@ -192,23 +258,15 @@
     </div>
 
     <script>
-      const materialDialog = document.getElementById("material-dialog");
       const zoomDialog = document.getElementById("zoom-dialog");
-
-      const openMaterialDialogButton = document.querySelector("[data-open-material-dialog]");
-      const closeMaterialDialogButton = document.querySelector("[data-close-material-dialog]");
       const openZoomDialogButton = document.querySelector("[data-open-zoom-dialog]");
       const closeZoomDialogButton = document.querySelector("[data-close-zoom-dialog]");
 
-      openMaterialDialogButton.addEventListener("click", () => materialDialog.showModal());
-      closeMaterialDialogButton.addEventListener("click", () => materialDialog.close());
       openZoomDialogButton.addEventListener("click", () => zoomDialog.showModal());
       closeZoomDialogButton.addEventListener("click", () => zoomDialog.close());
 
-      [materialDialog, zoomDialog].forEach((dialog) => {
-        dialog.addEventListener("click", (event) => {
-          if (event.target === dialog) dialog.close();
-        });
+      zoomDialog.addEventListener("click", (event) => {
+        if (event.target === zoomDialog) zoomDialog.close();
       });
     </script>
   </body>
