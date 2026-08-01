@@ -22,3 +22,4 @@ coverage/
 .env.*
 !.env.example
 .DS_Store
+AGENTS.md
