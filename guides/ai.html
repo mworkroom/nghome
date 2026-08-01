@@ -19,6 +19,52 @@
     />
     <link rel="stylesheet" href="../style.css" />
 
+    <style>
+      .next-step-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 52px;
+        margin-left: auto;
+        padding: 0 20px;
+        border: 1px solid #00a6dc;
+        border-radius: 12px;
+        background: #00b5ef;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 760;
+        box-shadow: 0 12px 26px rgba(0, 181, 239, 0.2);
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .next-step-link:hover {
+        transform: translateY(-2px);
+        background: #008fd0;
+      }
+
+      .next-step-link svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      @media (max-width: 560px) {
+        .bottom-actions {
+          align-items: stretch;
+          flex-direction: column-reverse;
+        }
+
+        .next-step-link {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    </style>
   </head>
 
   <body class="guide-page guide-page--ai">
@@ -173,6 +219,11 @@
           <a class="back-link" href="../guide.html">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"></path></svg>
             이전 화면으로 돌아가기
+          </a>
+
+          <a class="next-step-link" href="https://present.nangok.app/">
+            다음 단계: PDF로 합치기
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg>
           </a>
         </div>
       </main>
